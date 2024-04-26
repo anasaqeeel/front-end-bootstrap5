@@ -1,0 +1,51 @@
+/* Custom styles for the navbar */
+.navbar-custom {
+    background-color: #ffffff; /* Replace with the exact color code from your brand */
+    padding: 10px 15px; /* Adjust the padding to control the size of the navbar */
+}
+
+#topBarHome_logo_img {
+    width: 160px;
+}
+.navbar-brand {
+    color: #000000 !important; /* Adjust the color to match your brand */
+    font-size: 1.5rem; /* Adjust the size to match the screenshot */
+}
+
+.navbar-brand .logo-dark {
+    display: inline-block;
+}
+.nav-link {
+    color: #ff0000 !important; /* Adjust the color to match the screenshot */
+}
+
+.navbar-toggler {
+    border-color: rgba(99, 49, 49, 0.5); /* Toggler icon color */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+/* body under the navbar */
+body {
+    background-color: #d1dfee; /* Light grey background, adjust as needed */
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333; /* Dark text for contrast */
+    /* Add more styles if needed */
+}
+
+.text-secondary {
+    color: #6c757d; /* Bootstrap's secondary text color, for example */
+    /* Add more styles if needed */
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* You can add additional custom styles as needed */
+
