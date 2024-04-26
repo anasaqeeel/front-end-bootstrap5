@@ -43,7 +43,8 @@ h1 {
 
 .img-fluid {
     max-width: 100%;
-    height: auto;
+    height: auto; /* Or you can set this to a fixed height if necessary. */
+    border-radius: 15px; /* Rounded corners, if you want to keep this style. */
 }
 /* space between two buttons */
 .bt {
@@ -51,3 +52,68 @@ h1 {
 }
 
 
+/* section  */
+/* Previous styles... */
+
+/* Style for the "Who are we" section */
+.who-are-we-section {
+    background-color: #ffffff; /* Adjust this color to match your design */
+    /* Add more styling here if needed */
+}
+
+/* Style for section headings */
+.who-are-we-section h2 {
+    color: #333; /* Adjust the color to match your design */
+    margin-bottom: 1rem; /* Space below the heading */
+}
+
+/* Style for section paragraphs */
+.who-are-we-section p {
+    color: #555; /* Adjust the color to match your design */
+    line-height: 1.6; /* Line height for readability */
+}
+
+
+/* section 2 meet sadiq */
+.what-is-meet-sadiq-section {
+    background-color: #d1dfee;; /* A lighter background or any color as per design */
+}
+
+/* Responsive video container */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive video container with max-width */
+.ratio {
+    /* Keep the 16:9 aspect ratio */
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    position: relative;
+    max-width: 720px; /* Maximum width of the video container */
+    margin: auto; /* This will center the container if it's smaller than the parent */
+}
+
+.ratio iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Adjust the top padding of the body if the navbar is fixed */
+body {
+    padding-top: 80px; /* Adjust this value based on the height of your navbar */
+}
