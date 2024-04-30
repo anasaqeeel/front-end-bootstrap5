@@ -1,0 +1,73 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-image: url('handimage.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.login-content {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(106, 90, 205, 0.7); /* Adjust the color and opacity to match your design */
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-content h1 {
+    margin-bottom: 10px;
+}
+
+.login-content p {
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4169e1; /* Adjust the color to match your design */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+}
+
+.links a:not(:last-child) {
+    margin-right: 15px;
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 768px) {
+    .login-container {
+        background-image: none;
+        background-color: #6a5acd; /* Or any other color */
+    }
+}
