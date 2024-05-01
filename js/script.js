@@ -14,7 +14,7 @@ const routes = {
 
 const handleLocation = async () => {
   const path = window.location.pathname;
-  console.log("this is new path3.0 >>: ", path);
+  console.log("this is new path4.0 >>: ", path);
   const route = routes[path] || routes[404];
   try {
     const response = await fetch(route);
@@ -33,7 +33,6 @@ const handleLocation = async () => {
 };
 
 function updateVisibility(path) {
-  // Assuming default visibility setup needs to be changed
   const container = document.querySelector(".container");
   const sections = document.querySelectorAll(".who-are-we-section, .what-is-meet-sadiq-section");
   if (path === '/login' || path === '/signup') {
