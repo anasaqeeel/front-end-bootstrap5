@@ -9,7 +9,7 @@
 <body>
     <div class="login-container">
         <div class="login-content">
-            <h1>Welcome Back !</h1>
+            <h1>Welcome Back!</h1>
             <p>Sign in to continue to Meet Sadiq.</p>
             <form id="loginForm">
                 <div class="form-group">
@@ -28,5 +28,31 @@
             </form>
         </div>
     </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var email = document.getElementById('emailInput').value;
+            var password = document.getElementById('passwordInput').value;
+            
+            fetch('http://localhost:3000/login', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email: email, password: password })
+}).then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+}).then(data => {
+    alert(data.message);
+}).catch(error => {
+    console.error('Error:', error);
+    alert('Error handling request: ' + error.message);
+});
+
+        });
+    </script>
 </body>
 </html>
