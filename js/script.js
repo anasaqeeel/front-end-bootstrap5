@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 const route = (event) => {
   event.preventDefault();
   const href = event.target.getAttribute('href');
@@ -14,15 +16,14 @@ const routes = {
 
 const handleLocation = async () => {
   const path = window.location.pathname;
-  console.log("this is new path4.0 >>: ", path);
   const route = routes[path] || routes[404];
   try {
     const response = await fetch(route);
     const html = await response.text();
-    const mainContent = document.getElementById("main-content"); // Ensure this is the main container that should hold all content
+    const mainContent = document.getElementById("main-content");
     if (mainContent) {
       mainContent.innerHTML = html;
-      updateVisibility(path); // Additional function to handle visibility
+      reInitScripts(path);  // Call to reinitialize scripts
     }
   } catch (error) {
     console.error("Failed to fetch page:", error);
@@ -32,17 +33,27 @@ const handleLocation = async () => {
   }
 };
 
-function updateVisibility(path) {
-  const container = document.querySelector(".container");
-  const sections = document.querySelectorAll(".who-are-we-section, .what-is-meet-sadiq-section");
-  if (path === '/login' || path === '/signup') {
-    container.style.display = 'none'; // Hide main content for login/signup
-    sections.forEach(sec => sec.style.display = 'none');
-  } else {
-    container.style.display = ''; // Restore display
-    sections.forEach(sec => sec.style.display = '');
+function reInitScripts(path) {
+  if (path === '/login') {
+    // Re-run the login form script initialization
+    document.getElementById('loginForm').addEventListener('submit', loginFormHandler);
   }
+  else if (path === '/signup') {
+    // Re-run the login form script initialization
+    document.getElementById('SignUpForm').addEventListener('submit', SignUpFormHandler);
+  }
+  // You can add more conditions for other paths if needed
 }
+function loginFormHandler(event) {
+
+
+}
+function SignUpFormHandler(event) {
+  event.preventDefault();
+  
+}
+// then -> two args; 1st -> callback func fulfilled case of the promise, 2nd ->  function for the rejected case
+// catch -> another then but handles only rejected case
 
 window.onpopstate = handleLocation;
 window.addEventListener('load', handleLocation);

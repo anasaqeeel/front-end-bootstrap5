@@ -20,53 +20,56 @@ const UserSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('login', UserSchema,'login');
- 
+
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     console.log('Received login credientials are >> : ', email, password);
-    const user = await User.findOne({ email }).exec(); 
-    console.log('User found in database:', user); // This will show the user object or null
-
-    if (!user) {
-        console.log('No user found with this email >> :', email);
-        return res.status(404).json({ message: 'User not found' });
+    let flag=true;
+    if ((!email.includes('@')) || (!email) || (!password || password.length < 5)) {
+        flag=false;
     }
-
-    if (password === user.password) {
-        console.log('Password match, login successful');
-        return res.json({ message: 'Login successful :) ' });
-    } else {
-        console.log('Password mismatch');
-        return res.status(400).json({ message: 'Invalid credentials :( ' });
-    }
-});
-
-app.post('/signUP', async (req, res) => {
-    try {
-        const { email, password } = req.body;
-
-        // Check if email and password are provided
-        if (!email || !password) {
-            return res.status(400).json({ message: 'Email and password are required' });
+    if (flag)
+        {
+            const user = await User.findOne({ email }).exec(); 
+            console.log('User found in database:', user); // This will show the user object or null
+            if (!user) {
+                console.log('No user found with this email >> :', email);
+                return res.status(404).json({ message: 'User not found' });
+            }
+            if (password === user.password) {
+                console.log('Password match, login successful');
+                return res.json({ message: 'Login successful :) ' });
+            } else {
+                console.log('Password mismatch');
+                return res.status(400).json({ message: 'Invalid credentials :( ' });
+            }
         }
+    else{
+        res.send(`wrong email or pass !`)
+    }
+    
+   
+});
+//validation
+app.post('/signUP', async (req, res) => {
+    const { email, password } = req.body;
+    console.log('Received login credientials are >> : ', email, password);
 
-        console.log('Received signup credentials:', email, password);
-
-        // Check if user already exists
+    let flag=true;
+    if ((!email.includes('@')) || (!email) || (!password || password.length < 5)) {
+        flag=false;
+    }
+    if(flag){
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(409).json({ message: 'User already exists' });
         }
-
-        // Create new user and save to database
         const newUser = new User({ email, password });
         await newUser.save();
-        
-        // Respond with success if new user is created
         res.status(201).json({ message: 'User created successfully' });
-    } catch (error) {
-        console.error('Error creating user:', error);
-        res.status(500).json({ message: 'Error creating user', error: error.message });
+    }
+    else{
+        res.send(`wrong email or pass !`)
     }
 });
 
