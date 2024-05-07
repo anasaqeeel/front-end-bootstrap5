@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Test from './temp'
-import { isInterfaceType } from 'graphql'
 
 //component
 const array=[
@@ -45,10 +44,11 @@ function hello(){
     // use react frag i.e blank tags >> : <> </>
     
     <> 
-    <div>{show()}</div>
-    <div> here's text from test {x} <Test names={array} name_of_comp={"prop list"}/> </div>
-    <h1>{data}</h1>
-    <button onClick={()=>setData(data==="sohaib"?"arslan":"sohaib")}>CLICK ME</button>
+   <div>{show()}</div>
+      <div> here's text from test {x} <Test details={{email:"123@gmail.com",pass:"pak"}} Data={{ names: array, name_of_comp: "prop list" }} /></div>
+      <h1>{data}</h1>
+      <button onClick={() => setData(data === "sohaib" ? "arslan" : "sohaib")}>CLICK ME</button>
+
     </>
   )
 }

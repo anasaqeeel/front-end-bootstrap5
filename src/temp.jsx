@@ -1,20 +1,23 @@
 const array = [
-  'barcelona',
-  'real madrid',
-  'man city',
-  'dortmund',
-  'psg'
-]
-
-function Test({ names, name_of_comp }) {
-    return (
-        <>
-        <h3>{name_of_comp}</h3>
-        <ul>
-            {names.map((item)=><li>{item}</li>)}
-        </ul>
-        </>
-    )
-}
-
-export default Test
+    'barcelona',
+    'real madrid',
+    'man city',
+    'dortmund',
+    'psg'
+  ]
+  
+  function Test({ Data, details }) {
+      return (
+          <>
+          <h3>{Data.name_of_comp}</h3>
+          <ul>
+              {Data.names.map((item, index) => <li key={index}>{item}</li>)}
+          </ul>
+          <br />
+          <h4> details received are {" >>: "} {details.email} {details.pass} </h4>
+          </>
+      )
+  }
+  
+  export default Test
+  
