@@ -15,4 +15,10 @@ function hello(){
     </>
   )
 }
+
+// def -> when single obj needs to be exported
+// named def -> multiple exports but name should be same where imports!
+// export {a}
+// export {b}
+
 export default hello
