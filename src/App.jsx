@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Test from './temp'
+import { isInterfaceType } from 'graphql'
 
 //component
 const array=[
@@ -9,6 +10,7 @@ const array=[
   'dortmund',
   'psg'
 ]
+
 // '{}' use this to implement js within html
 function hello(){
   //using expressions
@@ -19,7 +21,12 @@ function hello(){
   //use gen prac >>: (x,y) x is the value that is updated , y updated x (func)
   //useState // A STATE HOOK 
   // using this hook we're telling react that this func comp have data or state that change over time
+
+  // each comp has its own states n they are indep to eachother
   var [V,setV]=useState(-1);
+  var [data,setData]=useState();
+
+  //using props to dynamically use the comp in multiple
   function show(){
     return(
     <ul className='list-group'>
@@ -38,9 +45,10 @@ function hello(){
     // use react frag i.e blank tags >> : <> </>
     
     <> 
-    <div> here's text from test {x} <Test></Test> </div>
-    <br></br>
     <div>{show()}</div>
+    <div> here's text from test {x} <Test names={array} name_of_comp={"prop list"}/> </div>
+    <h1>{data}</h1>
+    <button onClick={()=>setData(data==="sohaib"?"arslan":"sohaib")}>CLICK ME</button>
     </>
   )
 }
