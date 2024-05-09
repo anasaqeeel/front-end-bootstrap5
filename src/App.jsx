@@ -1,61 +1,79 @@
-import React, { useState } from 'react'
-import Test from './temp'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Ensure axios is installed
 
-//component
-const array=[
-  'barcelona',
-  'real madrid',
-  'man city',
-  'dortmund',
-  'psg'
-]
+function App() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loginStatus, setLoginStatus] = useState('');
+  const [identifier, setIdentifier] = useState(0);
 
-// '{}' use this to implement js within html
-function hello(){
-  //using expressions
-  const x=' >>: '
-  // as this v is local to this fucntional comp here, react does not know abt this
-  // so we use useState
-  let v=0;
-  //use gen prac >>: (x,y) x is the value that is updated , y updated x (func)
-  //useState // A STATE HOOK 
-  // using this hook we're telling react that this func comp have data or state that change over time
+  useEffect(() => {
+    if (identifier === 1) {
+      const verifyCredentials = async () => {
+        try {
+          const response = await fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+          });
 
-  // each comp has its own states n they are indep to eachother
-  var [V,setV]=useState(-1);
-  var [data,setData]=useState();
+          const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.message || 'An error occurred');
+          }
 
-  //using props to dynamically use the comp in multiple
-  function show(){
-    return(
-    <ul className='list-group'>
-        {array.map((item,index)=>
-        <li onClick={()=>setV(index)} className={V===index? 'list-group-item active':'list-group-item'} key={item}>
-          {item}
-        </li>
-        )
+          setLoginStatus(data.message);
+          if (response.status === 200) {
+            alert('Login Successful!');
+          console.log("i >>: "+identifier)
+          setIdentifier(0); // Reset identifier
+          } else {
+            alert(data.message);
+          }
+        } catch (error) {
+          console.error('Error during login:', error);
+          setLoginStatus('Error during login. Please try again later.');
+          setIdentifier(0); // Reset identifier
+          console.log("i >>: "+identifier)
         }
-    </ul>
-    )
-  }
-  return (
-    // two ways inorder to return more than one components within one func
-    // store all in one div
-    // use react frag i.e blank tags >> : <> </>
-    
-    <> 
-   <div>{show()}</div>
-      <div> here's text from test {x} <Test details={{email:"123@gmail.com",pass:"pak"}} Data={{ names: array, name_of_comp: "prop list" }} /></div>
-      <h1>{data}</h1>
-      <button onClick={() => setData(data === "sohaib" ? "arslan" : "sohaib")}>CLICK ME</button>
+      };
 
-    </>
-  )
+      verifyCredentials();
+    }
+  }, [identifier]); 
+
+
+  return (
+    <div>
+      <div className="container mt-5 pt-5">
+        <div className="row align-items-center">
+          <div className="col-lg-6">
+            <h1>Login to Meet Sadiq</h1>
+            <div>
+              <input 
+                type="email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+                placeholder="Enter email"
+                className="form-control"
+              />
+              <input 
+                type="password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)} 
+                placeholder="Enter password"
+                className="form-control mt-2"
+              />
+              <button  onClick={()=>setIdentifier(1)} className="btn btn-primary mt-2">Login</button>
+            </div>
+            {loginStatus && <p className="text-secondary">{loginStatus}</p>}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-// def -> when single obj needs to be exported
-// named def -> multiple exports but name should be same where imports!
-// export {a}
-// export {b}
-
-export default hello
+export default App;

@@ -1,0 +1,119 @@
+.navbar-custom {
+    background-color: #ffffff; 
+    padding: 10px 15px; 
+}
+
+#topBarHome_logo_img {
+    width: 160px;
+}
+.navbar-brand {
+    color: #000000 !important; 
+    font-size: 1.5rem; 
+}
+
+.navbar-brand .logo-dark {
+    display: inline-block;
+}
+.nav-link {
+    color: #ff0000 !important; 
+}
+
+.navbar-toggler {
+    border-color: rgba(99, 49, 49, 0.5); 
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+/* body under the navbar */
+body {
+    background-color: #d1dfee; 
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333; 
+}
+.dollar{
+    font-size: 1.5em;
+}
+.text-secondary {
+    color: #6c757d; 
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto; /* Or you can set this to a fixed height if necessary. */
+    border-radius: 15px; /* Rounded corners, if you want to keep this style. */
+}
+/* space between two buttons */
+.bt {
+    margin-right: 16px; 
+}
+
+
+/* section  */
+/* Previous styles... */
+
+/* Style for the "Who are we" section */
+.who-are-we-section {
+    background-color: #ffffff; /* Adjust this color to match your design */
+    /* Add more styling here if needed */
+}
+
+/* Style for section headings */
+.who-are-we-section h2 {
+    color: #333; /* Adjust the color to match your design */
+    margin-bottom: 1rem; /* Space below the heading */
+}
+
+/* Style for section paragraphs */
+.who-are-we-section p {
+    color: #555; /* Adjust the color to match your design */
+    line-height: 1.6; /* Line height for readability */
+}
+
+
+/* section 2 meet sadiq */
+.what-is-meet-sadiq-section {
+    background-color: #d1dfee;; /* A lighter background or any color as per design */
+}
+
+/* Responsive video container */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive video container with max-width */
+.ratio {
+    /* Keep the 16:9 aspect ratio */
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    position: relative;
+    max-width: 720px; /* Maximum width of the video container */
+    margin: auto; /* This will center the container if it's smaller than the parent */
+}
+
+.ratio iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Adjust the top padding of the body if the navbar is fixed */
+body {
+    padding-top: 80px; /* Adjust this value based on the height of your navbar */
+}
