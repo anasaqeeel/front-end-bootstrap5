@@ -1,0 +1,13 @@
+rnfs (react native functional componenet with style)
+-----------
+state -> is an obj where u store the property that belong to the component
+comp -> indpendent and reusable bits of code, they serve the purpose of js func, return html
+prop -> the properties we pass to a comp extrenally
+Hooks ->  allow function components to h ave access to state and other React features.
+-----------
+( '{}' use this to implement js within html )
+(index.html is the main container of our application)
+-----------
+component life cycle => initialization->mounting(when visible on screen)->updating(state changes)->unmounting(removed from screen)->initialization...
+useEffect:
+    cleanup func: responsible for cleaning up any side effects that affect the code. 
