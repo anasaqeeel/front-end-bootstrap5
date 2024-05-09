@@ -1,0 +1,5 @@
+Hooks -> useEffect useState 
+states and promps 
+functional comp
+useEffect to call api
+ui of meetsadiq with react
